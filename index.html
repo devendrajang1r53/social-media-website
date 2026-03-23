@@ -1,47 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ContentKutumb.in – Influencer Marketing Agency</title>
-  <link rel="stylesheet" href="css/style.css">
+    <title>Contentkutumb - Social Media Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 80px 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .price-card.featured {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .price-card.featured .price {
+            color: #ffd700;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+
+
+
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 <body>
-  <div class="test-box"></div>
 
-<header>
-  <h1 class="animate-up">ContentKutumb</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
 
-<section class="hero">
-  <h2 class="animate">Grow Your Business on Social Media 🚀</h2>
-  <p class="animate delay-1">
-    We are an all-in-one digital marketing agency helping influencers grow,
-    monetize and build powerful personal brands.
-  </p>
-  <a href="contact.html" class="btn animate delay-2">Get Started</a>
-</section>
 
-<section class="section">
-  <h2 class="animate">Why Choose Us</h2>
-  <div class="cards">
-    <div class="card animate delay-1">Influencer-First Strategy</div>
-    <div class="card animate delay-2">Creative Content Team</div>
-    <div class="card animate delay-3">Brand Collaboration Support</div>
-    <div class="card animate delay-4">Transparent Pricing</div>
-  </div>
-</section>
-
-<!-- WhatsApp Floating Button -->
-<a 
-  href="https://wa.me/917014388724?text=Hello%20I%20am%20interested%20in%20your%20social%20media%20services" 
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917014388724?text=Hello%20I%20am%20interested%20in%20your%20social%20media%20services" 
   target="_blank" 
   class="whatsapp-btn">
   💬
@@ -52,7 +321,6 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    animation: fadeUp 1s ease forwards;
     background: #25D366;
     color: white;
     width: 55px;
@@ -73,10 +341,214 @@
 </style>
 
 
-<footer>
-  © 2026 ContentKutumb.in | All Rights Reserved
-</footer>
 
-<script src="js/script.js"></script>
-</body>
-</html>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Content<span style="color: #ff6b6b;">kutumb</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#signup" class="cta-button">Start Trial</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Social Media Ko Simple Banayein</h1>
+        <p>Contentkutumb ke saath apne saare social media accounts ko ek jagah manage kariye. Schedule posts, analyze performance aur grow kariye apna business!</p>
+        <div class="hero-buttons">
+            <a href="#signup" class="cta-button" style="background: white; color: #667eea;">Trial Start Karein</a>
+            <a href="#features" class="cta-button" style="background: transparent; border: 2px solid white;">Features Dekhein</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Kyun Choose Karein Contentkutumb?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Smart Scheduling</h3>
+                <p>Best time pe automatically post schedule karein. AI suggest karega perfect posting time.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics Dashboard</h3>
+                <p>Real-time performance track kariye. Likes, shares, engagement sab ek click me.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Team Collaboration</h3>
+                <p>Team ke saath content approve karein aur calendar share kariye easily.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile App</h3>
+                <p>Kahi bhi, kabhi bhi manage kariye. Full mobile responsive experience.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Multi-Platform</h3>
+                <p>Instagram, Facebook, Twitter, LinkedIn - sabko ek saath manage kariye.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-robot"></i>
+                <h3>AI Content Generator</h3>
+                <p>AI se trending captions aur hashtags generate kariye instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div>
+                <div class="stat">10K+</div>
+                <div>Happy Users</div>
+            </div>
+            <div>
+                <div class="stat">50M+</div>
+                <div>Posts Scheduled</div>
+            </div>
+            <div>
+                <div class="stat">99.9%</div>
+                <div>Uptime</div>
+            </div>
+            <div>
+                <div class="stat">24/7</div>
+                <div>Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Simple Pricing Plans</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price">₹999<span>/month</span></div>
+                <ul style="text-align: left; margin: 2rem 0;">
+                    <li>✓ 3 Social Accounts</li>
+                    <li>✓ 100 Posts/Month</li>
+                    <li>✓ Basic Analytics</li>
+                    <li>✓ Email Support</li>
+                </ul>
+                <a href="#signup" class="cta-button">Get Started</a>
+            </div>
+            <div class="price-card featured">
+                <h3 style="font-size: 1.5rem; font-weight: 700;">Pro <span style="font-size: 0.8rem; opacity: 0.8;">Most Popular</span></h3>
+                <div class="price">₹2999<span>/month</span></div>
+                <ul style="text-align: left; margin: 2rem 0;">
+                    <li>✓ 10 Social Accounts</li>
+                    <li>✓ Unlimited Posts</li>
+                    <li>✓ Advanced Analytics</li>
+                    <li>✓ Priority Support</li>
+                    <li>✓ AI Content Generator</li>
+                </ul>
+                <a href="#signup" class="cta-button" style="background: #ffd700; color: #333;">Get Pro Plan</a>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <div class="price">₹9999<span>/month</span></div>
+                <ul style="text-align: left; margin: 2rem 0;">
+                    <li>✓ Unlimited Accounts</li>
+                    <li>✓ White-label</li>
+                    <li>✓ Custom API</li>
+                    <li>✓ 24/7 Phone Support</li>
+                </ul>
+                <a href="#contact" class="cta-button">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>Contentkutumb</h3>
+                <p>Social media management ko simple banayein. Ek platform, saare accounts!</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Product</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Features</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Pricing</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Integrations</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">About</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Careers</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Help Center</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none;">Status</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #555; padding-top: 2rem; margin-top: 2rem;">
+            <p>&copy; 2024 Contentkutumb. Sabhi adhikar surakshit hai.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace('+', ''));
+                const count = +counter.getAttribute('data-count') || target;
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < count) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + (target > 1000 ? 'K+' : '+');
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = count + (target > 1000 ? 'K+' : '+');
+                    }
+                };
+                updateCounter();
+            });
